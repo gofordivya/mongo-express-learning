@@ -1,0 +1,34 @@
+<%-include ("./component/header")%>
+
+<body style="margin: 24px auto; width: 75%">
+  <form action="/submit-article" method="POST">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" class="form-control" name="title" />
+    </div>
+
+    <div class="form-group">
+      <label>Article</label>
+      <input type="text" class="form-control" name="article" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <div class="result mt-4">
+    <% if (result.length > 0) { %> <% result.forEach(element => { %>
+    <div class="card mb-2 mt-2">
+      <div class="card-body">
+        <h5 class="card-title"><%= element.title %></h5>
+        <p class="card-text"><%= element.article %></p>
+        <a href="#" class="btn btn-primary">Edit</a>
+        <a href="#" class="btn btn-primary">Delete</a>
+      </div>
+    </div>
+    <% }); %> <% } else { %>
+    <p>There is no record.</p>
+    <% } %>
+  </div>
+</body>
+
+<%-include ("./component/footer")%>
