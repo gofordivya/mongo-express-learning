@@ -1,6 +1,6 @@
 <%-include ("./component/header")%>
 
-<body style="margin: 24px auto; width: 75%">
+<body class="container">
   <form action="/submit-article" method="POST">
     <div class="form-group">
       <label>Title</label>
@@ -21,7 +21,9 @@
       <div class="card-body">
         <h5 class="card-title"><%= element.title %></h5>
         <p class="card-text"><%= element.article %></p>
-        <a href="#" class="btn btn-primary">Edit</a>
+        <a href="/edit-article/<%= element.id %>" class="btn btn-primary"
+          >Edit</a
+        >
         <a href="/delete/<%= element.id %>" class="btn btn-danger">Delete</a>
       </div>
     </div>

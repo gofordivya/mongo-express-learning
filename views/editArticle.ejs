@@ -1,0 +1,27 @@
+<%-include ("./component/header")%>
+
+<a href="/" class="btn btn-primary">Back</a>
+<form action="/update-article/<%= result.id %>" method="POST" class="container">
+  <div class="form-group">
+    <label>Title</label>
+    <input
+      type="text"
+      class="form-control"
+      name="title"
+      value="<%= result.title %>"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Article</label>
+    <input
+      type="text"
+      class="form-control"
+      name="article"
+      value="<%= result.article %>"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
+<%-include ("./component/footer")%>
