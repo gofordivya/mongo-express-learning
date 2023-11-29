@@ -1,3 +1,8 @@
-body {
+.container {
+  margin: 24px auto;
+  width: 75%;
+}
+
+#err {
   color: red;
 }

@@ -2,8 +2,8 @@ const { Article } = require("../model/article");
 
 const getHomepage = (req, res) => {
   Article.find()
-    .then((result) => res.render("index", { result }))
-    .catch((error) => console.log(error));
+    .then((result) => res.render("index", { result, err: null }))
+    .catch((err) => res.render("index", { result: [], err: err.errors }));
 };
 
 const submitArticle = (req, res) => {
@@ -11,13 +11,13 @@ const submitArticle = (req, res) => {
   article
     .save()
     .then((result) => res.redirect("/"))
-    .catch((error) => console.log(error));
+    .catch((err) => res.render("index", { result: [], err: err.errors }));
 };
 
 const findArticle = (req, res) => {
   Article.findById({ _id: req.params.id })
     .then((result) => res.render("editArticle", { result }))
-    .catch((rrr) => console.log(err));
+    .catch((err) => console.log(err));
 };
 
 const updateArticle = (req, res) => {
