@@ -22,7 +22,7 @@
         <h5 class="card-title"><%= element.title %></h5>
         <p class="card-text"><%= element.article %></p>
         <a href="#" class="btn btn-primary">Edit</a>
-        <a href="#" class="btn btn-primary">Delete</a>
+        <a href="/delete/<%= element.id %>" class="btn btn-danger">Delete</a>
       </div>
     </div>
     <% }); %> <% } else { %>

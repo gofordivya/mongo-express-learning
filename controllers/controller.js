@@ -12,10 +12,16 @@ const submitArticle = (req, res) => {
     .save()
     .then((result) => res.redirect("/"))
     .catch((error) => console.log(error));
-  console.log("I got the signal", req.body);
+};
+
+const deleteArticle = (req, res) => {
+  Article.findByIdAndDelete({ _id: req.params.id })
+    .then((result) => res.redirect("/"))
+    .catch((rrr) => console.log(err));
 };
 
 module.exports = {
   getHomepage,
   submitArticle,
+  deleteArticle,
 };
